@@ -36,9 +36,10 @@ function Navbar() {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         backgroundColor: 'rgb(22, 22, 22)',
+        zIndex: 1000,
       }}
     >
       <Toolbar>
