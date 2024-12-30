@@ -1,0 +1,18 @@
+.placeholder {
+  color: var(--accent);
+  display: inline-block;
+  width: 3px;
+  height: 2.5rem;
+  background-color: currentColor;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: currentColor;
+  }
+}
