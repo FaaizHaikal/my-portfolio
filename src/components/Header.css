@@ -1,0 +1,43 @@
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem 12% 2rem;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: var(--text-color);
+
+  span {
+    color: var(--accent);
+  }
+
+  &:hover {
+    text-shadow: 0 0 25px var(--accent);
+    transform: scale(1.1);
+  }
+}
+
+nav a {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-left: 4rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover,
+  &.active {
+    color: var(--accent);
+  }
+}
