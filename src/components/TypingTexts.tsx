@@ -13,7 +13,7 @@ function TypingTexts({ texts, speed, backSpeed }: TypingTextsProps) {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let typingSpeed = isDeleting ? backSpeed : speed;
+    const typingSpeed = isDeleting ? backSpeed : speed;
 
     const handleTyping = () => {
       const currentText = texts[index];

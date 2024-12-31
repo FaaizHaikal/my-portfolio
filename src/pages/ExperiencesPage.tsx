@@ -34,7 +34,7 @@ function ExperiencesPage() {
       </div>
 
       <div className="experiences-content">
-        {experiences.map((experiences, index) => (
+        {experiences.map((experiences) => (
           <div className="experience">
             <div className="date">
               <span>{experiences.date}</span>
