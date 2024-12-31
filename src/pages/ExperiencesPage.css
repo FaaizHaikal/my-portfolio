@@ -27,7 +27,6 @@
   }
 }
 
-
 .btn-group {
   display: flex;
   align-items: center;
@@ -83,7 +82,8 @@
     transform: scale(1.05);
     border-bottom: 2px solid var(--accent);
 
-    .date, .company-logo {
+    .date,
+    .company-logo {
       filter: brightness(1);
     }
   }

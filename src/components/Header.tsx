@@ -30,7 +30,6 @@ function Navbar() {
     });
   }, []);
 
-
   return (
     <header>
       <a href="#about" className="logo">

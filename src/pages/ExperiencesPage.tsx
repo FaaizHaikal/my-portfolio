@@ -6,22 +6,25 @@ function ExperiencesPage() {
       title: 'AI Developer',
       company: 'SDPPI Kominfo',
       date: 'June 2024 - Dec 2024',
-      logo: 'src/assets/kominfo.png'
+      logo: 'src/assets/kominfo.png',
     },
     {
       title: 'Chief of Programming Division',
       company: 'ICHIRO ITS',
       date: 'Dec 2022 - Present',
-      logo: 'src/assets/ichiro.jpeg'
-    }
-  ]
+      logo: 'src/assets/ichiro.jpeg',
+    },
+  ];
 
   return (
     <section id="experiences">
       <div className="experiences-intro">
-        <h2>My <span>Experiences</span></h2>
+        <h2>
+          My <span>Experiences</span>
+        </h2>
         <p>
-          Here are some of my experiences and lessons i've learned along the way.
+          Here are some of my experiences and lessons i've learned along the
+          way.
         </p>
 
         <div className="btn-group">
@@ -47,7 +50,7 @@ function ExperiencesPage() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 export default ExperiencesPage;
