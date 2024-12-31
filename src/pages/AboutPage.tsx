@@ -4,10 +4,9 @@ import './AboutPage.css';
 
 function AboutPage() {
   const titles = [
-    'College Student',
     'Software Developer',
-    'Robotics Programmer',
     'Backend Developer',
+    'Robotics Programmer',
   ];
 
   return (
@@ -28,15 +27,10 @@ function AboutPage() {
           <span>Informatics Engineering</span>. I am passionate in{' '}
           <span>software development</span>.
         </p>
-
-        <div className="btn-group">
-          <a href="">My CV</a>
-          <a href="#contact">Contact Me</a>
-        </div>
       </div>
 
       <div className="about-image">
-        <img src={ImageProfile} alt="" />
+        <img src={ImageProfile} alt="Faa'iz" />
       </div>
     </section>
   );

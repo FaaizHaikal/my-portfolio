@@ -33,48 +33,9 @@
     line-height: 1.8;
     max-width: 100%;
   }
-}
 
-span {
-  color: var(--accent);
-}
-
-.btn-group {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-
-  a {
-    display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: black;
-    background: var(--accent);
-    border-radius: 0.5rem;
-    border: 2px solid transparent;
-    box-shadow: 0 0 20px var(--accent);
-    border-radius: 4rem;
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px var(--accent);
-    }
-
-    &:nth-of-type(2) {
-      background-color: black;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 20px transparent;
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 40px var(--accent);
-        background-color: var(--accent);
-        color: black;
-      }
-    }
+  span {
+    color: var(--accent);
   }
 }
 
