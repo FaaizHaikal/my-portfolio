@@ -6,13 +6,13 @@ function ExperiencesPage() {
       title: 'AI Developer',
       company: 'SDPPI Kominfo',
       date: 'June 2024 - Dec 2024',
-      logo: 'src/assets/kominfo.png',
+      logo: `${import.meta.env.BASE_URL}assets/kominfo.png`,
     },
     {
       title: 'Chief of Programming Division',
       company: 'ICHIRO ITS',
       date: 'Dec 2022 - Present',
-      logo: 'src/assets/ichiro.jpeg',
+      logo: `${import.meta.env.BASE_URL}assets/ichiro.jpeg`,
     },
   ];
 
