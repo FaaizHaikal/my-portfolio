@@ -12,7 +12,6 @@ function App() {
       if (!sectionsRef.current) return;
 
       const sections = Array.from(sectionsRef.current.children) as HTMLElement[];
-      const currentScroll = window.scrollY;
       const viewportHeight = window.innerHeight;
 
       // Determine the current section index
