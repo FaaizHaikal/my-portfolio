@@ -90,7 +90,7 @@
 
   .date {
     filter: brightness(0.5);
-    width: 30%;
+    width: 20rem;
     font-size: 1.1rem;
 
     span {
