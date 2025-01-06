@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Header';
 import AboutPage from './pages/AboutPage';
 import ExperiencesPage from './pages/ExperiencesPage';
+import ProjectsPage from './pages/ProjectsPage';
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
       <Navbar />
       <AboutPage />
       <ExperiencesPage />
+      <ProjectsPage />
     </>
   );
 }
