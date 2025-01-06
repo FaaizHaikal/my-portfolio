@@ -3,14 +3,14 @@ import './ProjectsPage.css';
 function ProjectsPage() {
   const projects = [
     {
-      title: 'Kick Flicker',
+      title: 'KickFlicker',
       description: 'E-commerce website for shoes',
       techStack: ['Laravel', 'Node.js', 'PostgreSQL', 'LiveWire'],
       image: `${import.meta.env.BASE_URL}assets/kick-flicker.png`,
       source: 'github.com/FaaizHaikal/KickFlicker',
     },
     {
-      title: 'Kick Support',
+      title: 'KickSupport',
       description: 'Chatbot for kick flicker',
       techStack: ['React', 'Flask'],
       image: `${import.meta.env.BASE_URL}assets/kick-support.png`,
