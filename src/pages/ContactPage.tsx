@@ -1,6 +1,37 @@
+import { useRef } from 'react';
 import './ContactPage.css';
+import emailjs from '@emailjs/browser';
 
 function ContactPage() {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!form.current) return;
+
+    const templateParams = {
+      from_name: form.current['Name'].value,
+      from_email: form.current['Email'].value,
+      message: form.current['Message'].value,
+    };
+
+    emailjs
+      .send(
+        'my-portfolio-service',
+        'my-portfolio-template',
+        templateParams,
+        'VvsaSfYHScA9fO30t'
+      )
+      .then((response) => {
+        console.log(response);
+        form.current?.reset();
+      })
+      .catch((error) => {
+        console.error('Error sending email', error);
+      });
+  };
+
   return (
     <section id="contact">
       <div className="left">
@@ -29,10 +60,17 @@ function ContactPage() {
         </div>
       </div>
       <div className="right">
-        <form action="">
-          <input type="text" name="Name" placeholder='Your Name' required/>
-          <input type="email" name="Email" placeholder='Your Email' required/>
-          <textarea name="Message" placeholder='Your Message' required></textarea>
+        <form ref={form} onSubmit={sendEmail}>
+          <input type="text" name="Name" placeholder="Your Name" required />
+          <input type="email" name="Email" placeholder="Your Email" required />
+          <textarea
+            name="Message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">
+            Send Email <i className="fa-solid fa-paper-plane"></i>
+          </button>
         </form>
       </div>
     </section>

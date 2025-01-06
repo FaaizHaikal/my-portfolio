@@ -85,7 +85,8 @@
   padding-top: 10rem;
 
   form {
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 1rem;
       font-size: 1.5rem;
@@ -117,6 +118,24 @@
       /* disable resize */
       resize: none;
       height: 20rem;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      background: var(--secondary);
+      color: var(--text-color);
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px var(--text-color);
+      }
+
+      i {
+        margin-left: 5px;
+      }
     }
   }
 }

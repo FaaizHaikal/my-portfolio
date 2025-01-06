@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      '@emailjs/browser':
+        specifier: ^4.4.1
+        version: 4.4.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -55,6 +58,13 @@ importers:
         version: 6.0.6(jiti@1.21.7)(yaml@2.6.1)
 
 packages:
+  '@emailjs/browser@4.4.1':
+    resolution:
+      {
+        integrity: sha512-DGSlP9sPvyFba3to2A50kDtZ+pXVp/0rhmqs2LmbMS3I5J8FSOgLwzY2Xb4qfKlOVHh29EAutLYwe5yuEZmEFg==,
+      }
+    engines: { node: '>=14.0.0' }
+
   '@esbuild/aix-ppc64@0.24.2':
     resolution:
       {
@@ -1771,6 +1781,8 @@ packages:
     engines: { node: '>=10' }
 
 snapshots:
+  '@emailjs/browser@4.4.1': {}
+
   '@esbuild/aix-ppc64@0.24.2':
     optional: true
 
