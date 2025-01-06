@@ -1,0 +1,122 @@
+#contact {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 30rem;
+}
+
+.left {
+  h2 {
+    font-size: 4rem;
+    font-weight: 900;
+
+    span {
+      color: var(--accent);
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    white-space: nowrap;
+  }
+
+  .primary-contact {
+    display: flex;
+    gap: 5rem;
+    border: var(--text-color) 2px solid;
+    border-radius: 1.25rem;
+    margin-top: 2rem;
+    padding: 2rem 3rem;
+
+    .item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        i {
+          background: var(--accent);
+          color: var(--secondary);
+          box-shadow: 0 0 20px var(--accent);
+        }
+
+        .description {
+          p {
+            color: var(--accent);
+          }
+        }
+      }
+
+      i {
+        font-size: 2rem;
+        color: var(--text-color);
+        margin-right: 1.25rem;
+        background: var(--secondary);
+        padding: 1.25rem;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        transition: 0.3s ease-in-out;
+      }
+
+      .description {
+        h6 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--text-color);
+          letter-spacing: 0.2rem;
+        }
+
+        p {
+          font-size: 1.25rem;
+          font-weight: 400;
+          transition: 0.3s ease-in-out;
+          margin-top: 0.5rem;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+.right {
+  padding-top: 10rem;
+
+  form {
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      background: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      color: var(--text-color);
+
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+
+      &::placeholder {
+        color: var(--text-color);
+        filter: brightness(0.5);
+      }
+
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid var(--text-color);
+
+        &::placeholder {
+          filter: brightness(1);
+        }
+      }
+    }
+
+    textarea {
+      /* disable resize */
+      resize: none;
+      height: 20rem;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import Navbar from './components/Header';
 import AboutPage from './pages/AboutPage';
 import ExperiencesPage from './pages/ExperiencesPage';
 import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   const sectionsRef = useRef<HTMLDivElement>(null);
@@ -11,13 +12,17 @@ function App() {
     const handleScroll = (event: WheelEvent) => {
       if (!sectionsRef.current) return;
 
-      const sections = Array.from(sectionsRef.current.children) as HTMLElement[];
+      const sections = Array.from(
+        sectionsRef.current.children
+      ) as HTMLElement[];
       const viewportHeight = window.innerHeight;
 
       // Determine the current section index
       const currentIndex = sections.findIndex((section) => {
         const rect = section.getBoundingClientRect();
-        return rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2;
+        return (
+          rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2
+        );
       });
 
       // Ignore if not a valid index
@@ -48,6 +53,7 @@ function App() {
         <AboutPage />
         <ExperiencesPage />
         <ProjectsPage />
+        <ContactPage />
       </div>
     </>
   );
