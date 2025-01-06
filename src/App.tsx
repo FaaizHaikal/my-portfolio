@@ -1,22 +1,37 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Navbar from './components/Header';
 import AboutPage from './pages/AboutPage';
 import ExperiencesPage from './pages/ExperiencesPage';
 import ProjectsPage from './pages/ProjectsPage';
 
 function App() {
+  const sectionsRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
-      event.preventDefault();
-      const sections = document.querySelectorAll('section');
-      const currentSectionIndex = Math.round(
-        window.scrollY / window.innerHeight
-      );
-      const nextSectionIndex =
-        event.deltaY > 0 ? currentSectionIndex + 1 : currentSectionIndex - 1;
+      if (!sectionsRef.current) return;
 
-      if (nextSectionIndex >= 0 && nextSectionIndex < sections.length) {
-        sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
+      const sections = Array.from(sectionsRef.current.children) as HTMLElement[];
+      const currentScroll = window.scrollY;
+      const viewportHeight = window.innerHeight;
+
+      // Determine the current section index
+      const currentIndex = sections.findIndex((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2;
+      });
+
+      // Ignore if not a valid index
+      if (currentIndex === -1) return;
+
+      const isScrollingDown = event.deltaY > 0;
+      const nextIndex = isScrollingDown
+        ? Math.min(currentIndex + 1, sections.length - 1)
+        : Math.max(currentIndex - 1, 0);
+
+      if (currentIndex !== nextIndex) {
+        event.preventDefault();
+        sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
       }
     };
 
@@ -30,9 +45,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <AboutPage />
-      <ExperiencesPage />
-      <ProjectsPage />
+      <div ref={sectionsRef}>
+        <AboutPage />
+        <ExperiencesPage />
+        <ProjectsPage />
+      </div>
     </>
   );
 }
