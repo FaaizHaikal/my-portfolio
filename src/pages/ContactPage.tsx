@@ -23,6 +23,7 @@ function ContactPage() {
         templateParams,
         'VvsaSfYHScA9fO30t'
       )
+      // TODO: Create display log component
       .then((response) => {
         console.log(response);
         form.current?.reset();
