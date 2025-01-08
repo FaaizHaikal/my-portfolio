@@ -5,14 +5,18 @@ function ExperiencesPage() {
     {
       title: 'AI Developer',
       company: 'SDPPI Kominfo',
-      date: 'June 2024 - Dec 2024',
+      date: 'Aug 2024 - Dec 2024',
       logo: `${import.meta.env.BASE_URL}assets/kominfo.png`,
+      decription:
+        'Developed face recognition and text to speech for RAISA assistant robot.',
     },
     {
       title: 'Chief of Programming Division',
       company: 'ICHIRO ITS',
       date: 'Dec 2022 - Present',
       logo: `${import.meta.env.BASE_URL}assets/ichiro.jpeg`,
+      decription:
+        'Led the programming division, developed various projects, and participated in national and international competitions.',
     },
   ];
 
@@ -28,6 +32,7 @@ function ExperiencesPage() {
         </p>
 
         <div className="btn-group">
+          {/* TODO: Add CV */}
           <a href="">My CV</a>
           <a href="#contact">Contact Me</a>
         </div>
@@ -36,6 +41,9 @@ function ExperiencesPage() {
       <div className="experiences-content">
         {experiences.map((experiences) => (
           <div className="experience">
+            <div className="description">
+              <p>{experiences.decription}</p>
+            </div>
             <div className="date">
               <span>{experiences.date}</span>
             </div>
