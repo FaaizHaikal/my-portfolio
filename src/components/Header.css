@@ -11,14 +11,15 @@ header {
   padding: 2rem 12% 2rem;
 }
 
-#menu-icon, #close-icon {
+#menu-icon,
+#close-icon {
   font-size: 3rem;
   color: var(--text-color);
   cursor: pointer;
   transition: 0.3s ease;
   display: none;
 
-  &:hover{
+  &:hover {
     color: var(--accent);
   }
 }
@@ -54,7 +55,7 @@ nav a {
   }
 }
 
-@media (max-width: 895px) {  
+@media (max-width: 895px) {
   header {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);

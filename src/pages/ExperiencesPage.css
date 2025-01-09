@@ -154,7 +154,7 @@
   #experiences {
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
   }
 }
 
@@ -164,7 +164,10 @@
     gap: 1rem;
     padding: 1rem;
     border-bottom: 2px solid rgba(0, 68, 255, 0.5);
-    margin-bottom: 3rem;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
 
     .date {
       width: 100%;
@@ -185,6 +188,6 @@
 
 @media (max-height: 756px) {
   #experiences {
-    padding-top: 10rem;
+    padding-top: 9rem;
   }
 }

@@ -83,7 +83,6 @@
 }
 
 @media (max-width: 600px) {
-
   .about-image {
     img {
       width: 56vw;
@@ -92,7 +91,7 @@
 }
 
 @media (max-width: 376px) {
-    .about-content {
+  .about-content {
     h1 {
       font-size: 4rem;
     }

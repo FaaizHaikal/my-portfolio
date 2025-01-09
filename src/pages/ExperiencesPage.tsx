@@ -27,7 +27,7 @@ function ExperiencesPage() {
           My <span>Experiences</span>
         </h2>
         <p>
-          Here are some of my experiences and lessons i've learned along the
+          Here are some of my experiences and lessons I've learned along the
           way.
         </p>
 

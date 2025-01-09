@@ -3,12 +3,17 @@ import './Header.css';
 
 function Navbar() {
   useEffect(() => {
-
     const menuIcon = document.querySelector('#menu-icon') as HTMLElement | null;
-    const closeIcon = document.querySelector('#close-icon') as HTMLElement | null;
+    const closeIcon = document.querySelector(
+      '#close-icon'
+    ) as HTMLElement | null;
     const nav = document.querySelector('nav') as HTMLElement | null;
-    const navLinks = document.querySelectorAll('nav a') as NodeListOf<HTMLAnchorElement>;
-    const sections = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
+    const navLinks = document.querySelectorAll(
+      'nav a'
+    ) as NodeListOf<HTMLAnchorElement>;
+    const sections = document.querySelectorAll(
+      'section'
+    ) as NodeListOf<HTMLElement>;
 
     if (!menuIcon || !closeIcon || !nav) return;
 
@@ -16,13 +21,13 @@ function Navbar() {
       nav.classList.add('active');
       menuIcon.style.display = 'none';
       closeIcon.style.display = 'block';
-    }
+    };
 
     closeIcon.onclick = () => {
       nav.classList.remove('active');
       menuIcon.style.display = 'block';
       closeIcon.style.display = 'none';
-    }
+    };
 
     window.onresize = () => {
       if (window.innerWidth > 895) {
@@ -38,7 +43,7 @@ function Navbar() {
           closeIcon.style.display = 'none';
         }
       }
-    }
+    };
 
     window.onscroll = () => {
       sections.forEach((section) => {
@@ -55,9 +60,8 @@ function Navbar() {
             }
           });
         }
-      })
-    }
-
+      });
+    };
   }, []);
 
   return (
