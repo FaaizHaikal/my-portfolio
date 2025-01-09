@@ -18,13 +18,29 @@
   --accent: #0044ff;
 }
 
+
+  /* scrollbar */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--primary);
+  }
+
 html {
   font-size: 60%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
   background-color: var(--primary);
+  overflow: hidden;
   color: var(--text-color);
 }
 
@@ -39,7 +55,8 @@ section {
     font-size: 55%;
   }
 
-  header, section {
+  header,
+  section {
     padding: 2rem 6% 2rem;
   }
 }
