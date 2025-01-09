@@ -1,19 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Header.css';
 
 function Navbar() {
+  const [activeSection, setActiveSection] = useState<string>('about');
+
   useEffect(() => {
     const menuIcon = document.querySelector('#menu-icon') as HTMLElement | null;
-    const closeIcon = document.querySelector(
-      '#close-icon'
-    ) as HTMLElement | null;
+    const closeIcon = document.querySelector('#close-icon') as HTMLElement | null;
     const nav = document.querySelector('nav') as HTMLElement | null;
-    const navLinks = document.querySelectorAll(
-      'nav a'
-    ) as NodeListOf<HTMLAnchorElement>;
-    const sections = document.querySelectorAll(
-      'section'
-    ) as NodeListOf<HTMLElement>;
+    const sections = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
 
     if (!menuIcon || !closeIcon || !nav) return;
 
@@ -45,22 +40,22 @@ function Navbar() {
       }
     };
 
-    window.onscroll = () => {
-      sections.forEach((section) => {
-        const id = section.id;
-        const top = window.scrollY;
-        const offset = section.offsetTop - 150;
-        const height = section.offsetHeight;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setActiveSection(id);
+          }
+        });
+      },
+      { threshold: 0.5 } // 50% of the section must be visible
+    );
 
-        if (top >= offset && top < offset + height) {
-          navLinks.forEach((navLink) => {
-            navLink.classList.remove('active');
-            if (navLink.href.includes(`#${id}`)) {
-              navLink.classList.add('active');
-            }
-          });
-        }
-      });
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
@@ -74,12 +69,18 @@ function Navbar() {
       <i className="fa-solid fa-bars hide" id="menu-icon"></i>
 
       <nav>
-        <a href="#about" className="active">
+        <a href="#about" className={activeSection === 'about' ? 'active' : ''}>
           About
         </a>
-        <a href="#experiences">Experiences</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#experiences" className={activeSection === 'experiences' ? 'active' : ''}>
+          Experiences
+        </a>
+        <a href="#projects" className={activeSection === 'projects' ? 'active' : ''}>
+          Projects
+        </a>
+        <a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>
+          Contact
+        </a>
       </nav>
     </header>
   );

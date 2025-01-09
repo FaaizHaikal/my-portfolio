@@ -18,9 +18,8 @@
   --accent: #0044ff;
 }
 
-/* scrollbar */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -34,19 +33,18 @@
 
 html {
   font-size: 60%;
-  overflow: hidden;
 }
 
 body {
   background-color: var(--primary);
-  overflow: hidden;
   color: var(--text-color);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--primary);
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   padding: 10rem 12% 10rem;
-  overflow-y: auto;
 }
 
 @media (max-width: 1436px) {
