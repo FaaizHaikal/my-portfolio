@@ -41,6 +41,8 @@
 
 .about-image {
   border-radius: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
 
   img {
     top: 3rem;
@@ -50,6 +52,11 @@
     box-shadow: 0 0 20px var(--accent);
     cursor: pointer;
     transition: 0.4s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px var(--accent);
+    }
   }
 }
 

@@ -4,14 +4,14 @@ function ProjectsPage() {
   const projects = [
     {
       title: 'KickFlicker',
-      description: 'E-commerce website for shoes',
+      description: 'E-commerce website for shoes with advanced image search',
       techStack: ['Laravel', 'Node.js', 'PostgreSQL'],
       image: `${import.meta.env.BASE_URL}assets/kick-flicker.png`,
       source: 'github.com/FaaizHaikal/KickFlicker',
     },
     {
       title: 'KickSupport',
-      description: 'Chatbot for kick flicker',
+      description: 'Chatbot for KickFlicker',
       techStack: ['React', 'Flask'],
       image: `${import.meta.env.BASE_URL}assets/kick-support.png`,
       source: 'github.com/FaaizHaikal/KickSupport',
