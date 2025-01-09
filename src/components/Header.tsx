@@ -24,7 +24,7 @@ function Navbar() {
       closeIcon.style.display = 'none';
     };
 
-    window.onresize = () => {
+    const handleResize = () => {
       if (window.innerWidth > 895) {
         nav.classList.remove('active');
         menuIcon.style.display = 'none';
@@ -38,7 +38,10 @@ function Navbar() {
           closeIcon.style.display = 'none';
         }
       }
-    };
+    }
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -49,13 +52,14 @@ function Navbar() {
           }
         });
       },
-      { threshold: 0.5 } // 50% of the section must be visible
+      { threshold: 0.5 } // 50%
     );
 
     sections.forEach((section) => observer.observe(section));
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
