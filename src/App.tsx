@@ -1,4 +1,4 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Header';
 import AboutPage from './pages/AboutPage';
 import ExperiencesPage from './pages/ExperiencesPage';
@@ -9,12 +9,23 @@ function App() {
   useEffect(() => {
     const sections = document.querySelectorAll('section');
     let currentSectionIndex = 0;
+    let isScrolling = false;
 
     const scrollToSection = (index: number) => {
+      isScrolling = true;
       sections[index].scrollIntoView({ behavior: 'smooth' });
+
+      setTimeout(() => {
+        isScrolling = false;
+      }, 500);
     };
 
     const handleScroll = (event: WheelEvent) => {
+      if (isScrolling) {
+        event.preventDefault();
+        return;
+      }
+
       const currentSection = sections[currentSectionIndex];
       const atTop = currentSection.scrollTop === 0;
       const atBottom =
