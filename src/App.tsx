@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect} from 'react';
 import Navbar from './components/Header';
 import AboutPage from './pages/AboutPage';
 import ExperiencesPage from './pages/ExperiencesPage';
@@ -6,50 +6,47 @@ import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 
 function App() {
-  const sectionsRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    let currentSectionIndex = 0;
+
+    const scrollToSection = (index: number) => {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+    };
+
     const handleScroll = (event: WheelEvent) => {
-      if (!sectionsRef.current) return;
+      const currentSection = sections[currentSectionIndex];
+      const atTop = currentSection.scrollTop === 0;
+      const atBottom =
+        currentSection.scrollHeight - currentSection.scrollTop ===
+        currentSection.clientHeight;
 
-      const sections = Array.from(
-        sectionsRef.current.children
-      ) as HTMLElement[];
-      const viewportHeight = window.innerHeight;
+      const delta = Math.sign(event.deltaY);
 
-      // Determine the current section index
-      const currentIndex = sections.findIndex((section) => {
-        const rect = section.getBoundingClientRect();
-        return (
-          rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2
-        );
-      });
-
-      // Ignore if not a valid index
-      if (currentIndex === -1) return;
-
-      const isScrollingDown = event.deltaY > 0;
-      const nextIndex = isScrollingDown
-        ? Math.min(currentIndex + 1, sections.length - 1)
-        : Math.max(currentIndex - 1, 0);
-
-      if (currentIndex !== nextIndex) {
-        event.preventDefault();
-        sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
+      if (delta > 0 && atBottom && currentSectionIndex < sections.length - 1) {
+        currentSectionIndex++;
+        scrollToSection(currentSectionIndex);
+      } else if (delta < 0 && atTop && currentSectionIndex > 0) {
+        currentSectionIndex--;
+        scrollToSection(currentSectionIndex);
       }
     };
 
-    window.addEventListener('wheel', handleScroll, { passive: false });
+    sections.forEach((section) => {
+      section.addEventListener('wheel', handleScroll, { passive: false });
+    });
 
     return () => {
-      window.removeEventListener('wheel', handleScroll);
+      sections.forEach((section) => {
+        section.removeEventListener('wheel', handleScroll);
+      });
     };
   }, []);
 
   return (
     <>
       <Navbar />
-      <div ref={sectionsRef}>
+      <div>
         <AboutPage />
         <ExperiencesPage />
         <ProjectsPage />
