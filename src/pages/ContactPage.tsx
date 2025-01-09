@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './ContactPage.css';
 import emailjs from '@emailjs/browser';
 import UserLog from '../components/UserLog';
@@ -7,8 +7,6 @@ function ContactPage() {
   const form = useRef<HTMLFormElement>(null);
 
   const [logMessage, setLogMessage] = useState('');
-
-  const clearLog = () => setLogMessage('');
 
   const sendEmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,6 +36,10 @@ function ContactPage() {
         setLogMessage('Sorry :( Email service is currently unavailable');
       });
   };
+
+  const clearLog = useCallback(() => {
+    setLogMessage('');
+  }, []);
 
   return (
     <section id="contact">

@@ -3,17 +3,17 @@ import './UserLog.css';
 
 interface UserLogProps {
   message: string;
-  duration: number;
+  duration?: number;
   clearLog: () => void;
 }
 
-function UserLog({message, duration = 3, clearLog}: UserLogProps) {
+function UserLog({ message, duration = 3, clearLog }: UserLogProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (message && !visible) {
       setVisible(true);
-      
+
       const timer = setTimeout(() => {
         setVisible(false);
         clearLog();
@@ -21,13 +21,13 @@ function UserLog({message, duration = 3, clearLog}: UserLogProps) {
 
       return () => clearTimeout(timer);
     }
-  }, [message, duration]);
+  }, [message, duration, clearLog, visible]);
 
   return (
     <div className={`container ${visible ? 'visible' : ''}`}>
       <p>{message}</p>
     </div>
-  )
-};
+  );
+}
 
 export default UserLog;

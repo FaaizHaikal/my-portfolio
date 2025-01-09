@@ -6,9 +6,13 @@ function Navbar() {
 
   useEffect(() => {
     const menuIcon = document.querySelector('#menu-icon') as HTMLElement | null;
-    const closeIcon = document.querySelector('#close-icon') as HTMLElement | null;
+    const closeIcon = document.querySelector(
+      '#close-icon'
+    ) as HTMLElement | null;
     const nav = document.querySelector('nav') as HTMLElement | null;
-    const sections = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
+    const sections = document.querySelectorAll(
+      'section'
+    ) as NodeListOf<HTMLElement>;
 
     if (!menuIcon || !closeIcon || !nav) return;
 
@@ -38,7 +42,7 @@ function Navbar() {
           closeIcon.style.display = 'none';
         }
       }
-    }
+    };
 
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -76,13 +80,22 @@ function Navbar() {
         <a href="#about" className={activeSection === 'about' ? 'active' : ''}>
           About
         </a>
-        <a href="#experiences" className={activeSection === 'experiences' ? 'active' : ''}>
+        <a
+          href="#experiences"
+          className={activeSection === 'experiences' ? 'active' : ''}
+        >
           Experiences
         </a>
-        <a href="#projects" className={activeSection === 'projects' ? 'active' : ''}>
+        <a
+          href="#projects"
+          className={activeSection === 'projects' ? 'active' : ''}
+        >
           Projects
         </a>
-        <a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>
+        <a
+          href="#contact"
+          className={activeSection === 'contact' ? 'active' : ''}
+        >
           Contact
         </a>
       </nav>
