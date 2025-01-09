@@ -1,9 +1,14 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './ContactPage.css';
 import emailjs from '@emailjs/browser';
+import UserLog from '../components/UserLog';
 
 function ContactPage() {
   const form = useRef<HTMLFormElement>(null);
+
+  const [logMessage, setLogMessage] = useState('');
+
+  const clearLog = () => setLogMessage('');
 
   const sendEmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,13 +28,14 @@ function ContactPage() {
         templateParams,
         'VvsaSfYHScA9fO30t'
       )
-      // TODO: Create display log component
-      .then((response) => {
-        console.log(response);
+
+      .then(() => {
         form.current?.reset();
+        setLogMessage('Thank you! I will reply as soon as possible.');
       })
       .catch((error) => {
         console.error('Error sending email', error);
+        setLogMessage('Sorry :( Email service is currently unavailable');
       });
   };
 
@@ -74,6 +80,7 @@ function ContactPage() {
           </button>
         </form>
       </div>
+      <UserLog message={logMessage} duration={3} clearLog={clearLog} />
     </section>
   );
 }
