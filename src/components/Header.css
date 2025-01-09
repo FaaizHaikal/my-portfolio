@@ -71,6 +71,7 @@ nav a {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
     border-left: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
     padding: 1rem 3%;
 
     &.active {
