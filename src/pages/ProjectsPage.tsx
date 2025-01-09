@@ -5,7 +5,7 @@ function ProjectsPage() {
     {
       title: 'KickFlicker',
       description: 'E-commerce website for shoes',
-      techStack: ['Laravel', 'Node.js', 'PostgreSQL', 'LiveWire'],
+      techStack: ['Laravel', 'Node.js', 'PostgreSQL'],
       image: `${import.meta.env.BASE_URL}assets/kick-flicker.png`,
       source: 'github.com/FaaizHaikal/KickFlicker',
     },
@@ -37,7 +37,7 @@ function ProjectsPage() {
             <img src={project.image} alt={project.title} />
             <div className="project-info">
               <h3>{project.title}</h3>
-              <h6>Tech Stack: {project.techStack.join(', ')}</h6>
+              <h6>Tech: {project.techStack.join(', ')}</h6>
               <p>{project.description}</p>
               <a
                 href={`https://${project.source}`}

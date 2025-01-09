@@ -22,9 +22,9 @@ function AboutPage() {
           </span>
         </h3>
         <p>
-          I am an undergraduate student at the{' '}
+          I'm an undergraduate student at the{' '}
           <span>Institute Technology of Sepuluh Nopember</span>, majoring in{' '}
-          <span>Informatics Engineering</span>. I am passionate in{' '}
+          <span>Informatics Engineering</span>. I'm passionate in{' '}
           <span>software development</span>.
         </p>
       </div>

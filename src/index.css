@@ -30,5 +30,15 @@ body {
 
 section {
   min-height: 100vh;
-  padding: 2rem 12% 2rem;
+  padding: 10rem 12% 10rem;
+}
+
+@media (max-width: 1436px) {
+  html {
+    font-size: 55%;
+  }
+
+  header, section {
+    padding: 2rem 6% 2rem;
+  }
 }

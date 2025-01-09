@@ -11,6 +11,18 @@ header {
   padding: 2rem 12% 2rem;
 }
 
+#menu-icon, #close-icon {
+  font-size: 3rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: none;
+
+  &:hover{
+    color: var(--accent);
+  }
+}
+
 .logo {
   font-size: 4rem;
   font-weight: 900;
@@ -39,5 +51,46 @@ nav a {
   &:hover,
   &.active {
     color: var(--accent);
+  }
+}
+
+@media (max-width: 895px) {  
+  header {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 1rem 3%;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 20rem;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    border-left: 2px solid var(--accent);
+    padding: 1rem 3%;
+
+    &.active {
+      display: block;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin: 3rem 0;
+
+      &:hover,
+      &.active {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+@media (max-height: 756px) {
+  .logo {
+    font-size: 3rem;
   }
 }
