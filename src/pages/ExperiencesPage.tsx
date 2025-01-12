@@ -32,8 +32,7 @@ function ExperiencesPage() {
         </p>
 
         <div className="btn-group">
-          {/* TODO: Add CV */}
-          <a href="">My CV</a>
+          <a href={`${import.meta.env.BASE_URL}assets/cv.pdf`} download="Faa'iz Haikal Hilmi_CV.pdf">My CV</a>
           <a href="#contact">Contact Me</a>
         </div>
       </div>
