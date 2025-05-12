@@ -43,6 +43,7 @@ function ContactPage() {
 
   return (
     <section id="contact">
+      <div className="contact-content">
       <div className="left">
         <h2>
           Contact <span>Me</span>
@@ -83,6 +84,24 @@ function ContactPage() {
         </form>
       </div>
       <UserLog message={logMessage} duration={3} clearLog={clearLog} />
+      </div>
+      <footer>
+        <div className="socials">
+          <a href="https://github.com/FaaizHaikal" target="_blank">
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/faaizhaikal" target="_blank">
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://instagram.com/faaizhilmi" target="_blank">
+            <i className="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+
+        <p className="copyright">
+          @ Faa'iz Haikal Hilmi | All Rights Reserved
+        </p>
+      </footer>
     </section>
   );
 }
