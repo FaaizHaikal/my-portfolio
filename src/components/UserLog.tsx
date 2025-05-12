@@ -7,19 +7,23 @@ interface UserLogProps {
   clearLog: () => void;
 }
 
-function UserLog({ message, duration = 3, clearLog }: UserLogProps) {
+function UserLog({ message, duration = 1, clearLog }: UserLogProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (message && !visible) {
+    if (message) {
       setVisible(true);
-
+      
       const timer = setTimeout(() => {
         setVisible(false);
         clearLog();
       }, duration * 1000);
 
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+      };
+    } else {
+      setVisible(false);
     }
   }, [message, duration, clearLog, visible]);
 
