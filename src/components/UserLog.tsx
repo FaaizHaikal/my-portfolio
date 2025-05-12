@@ -13,7 +13,7 @@ function UserLog({ message, duration = 1, clearLog }: UserLogProps) {
   useEffect(() => {
     if (message) {
       setVisible(true);
-      
+
       const timer = setTimeout(() => {
         setVisible(false);
         clearLog();

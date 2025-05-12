@@ -173,7 +173,7 @@ footer {
       margin: 0 2rem;
 
       &:hover {
-        transform: scale(1.2)translateY(-5px);
+        transform: scale(1.2) translateY(-5px);
         background-color: var(--accent);
         color: black;
         box-shadow: 0 0 25px var(--accent);
