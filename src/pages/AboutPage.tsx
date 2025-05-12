@@ -27,6 +27,18 @@ function AboutPage() {
           <span>Informatics Engineering</span>. I'm passionate in{' '}
           <span>software development</span>.
         </p>
+
+        <div className="socials">
+          <a href="https://github.com/FaaizHaikal" target="_blank">
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/faaizhaikal" target="_blank">
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://instagram.com/faaizhilmi" target="_blank">
+            <i className="fa-brands fa-instagram"></i>
+          </a>
+        </div>
       </div>
 
       <div className="about-image">
