@@ -22,10 +22,10 @@ function AboutPage() {
           </span>
         </h3>
         <p>
-          I’m a{' '}<span>final-year Computer Science student</span> at{' '}
-          <span>Institut Teknologi Sepuluh Nopember</span>, 
-          passionate about building real-world software, from 
-          AI-powered systems to mobile and web apps.
+          I’m a <span>final-year Computer Science student</span> at{' '}
+          <span>Institut Teknologi Sepuluh Nopember</span>, passionate about
+          building real-world software, from AI-powered systems to mobile and
+          web apps.
         </p>
 
         <div className="socials">

@@ -7,7 +7,7 @@ function ExperiencesPage() {
       company: 'ICHIRO ITS Robotics Team',
       date: 'Dec 2022 - July 2025',
       logo: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
-      description: `Developed microservice architecture comprising 13 services and web-based robot control interface, contributing to national and international wins.`
+      description: `Developed microservice architecture comprising 13 services and web-based robot control interface, contributing to national and international wins.`,
     },
     {
       title: 'AI Software Developer',

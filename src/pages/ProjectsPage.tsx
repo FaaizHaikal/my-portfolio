@@ -9,26 +9,29 @@ function ProjectsPage() {
     {
       title: 'Spendiary',
       type: 'Mobile App',
-      description: 'A personal finance mobile app that helps users track expenses and savings. Built with secure JWT-based authentication and Go Fiber backend.',
+      description:
+        'A personal finance mobile app that helps users track expenses and savings. Built with secure JWT-based authentication and Go Fiber backend.',
       techStack: ['Flutter', 'Go Fiber', 'PostgreSQL'],
       image: `${import.meta.env.BASE_URL}assets/spendiary-min.webp`,
-      source : 'github.com/FaaizHaikal/spendiary'
+      source: 'github.com/FaaizHaikal/spendiary',
     },
     {
       title: 'Osingly',
       type: 'Mobile App',
-      description: 'A Kotlin-based app for translating Osing–Indonesian using a custom-trained NMT model (96% BLEU). Supports text and image translation.',
+      description:
+        'A Kotlin-based app for translating Osing–Indonesian using a custom-trained NMT model (96% BLEU). Supports text and image translation.',
       techStack: ['Kotlin', 'FastAPI', 'PyTorch'],
       image: `${import.meta.env.BASE_URL}assets/osingly-min.webp`,
-      source : 'github.com/FaaizHaikal/osingly'
+      source: 'github.com/FaaizHaikal/osingly',
     },
     {
       title: 'Planthis',
       type: 'Mobile App',
-      description: 'A smart tree recommendation app using geolocation and environmental data. Users get real-time suggestions based on pinned map areas.',
+      description:
+        'A smart tree recommendation app using geolocation and environmental data. Users get real-time suggestions based on pinned map areas.',
       techStack: ['Flutter', 'FastAPI'],
       image: `${import.meta.env.BASE_URL}assets/planthis-min.webp`,
-      source : 'github.com/FaaizHaikal/planthis'
+      source: 'github.com/FaaizHaikal/planthis',
     },
     {
       title: 'KickFlicker',
