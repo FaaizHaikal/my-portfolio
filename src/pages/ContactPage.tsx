@@ -98,8 +98,8 @@ function ContactPage() {
           <a href="https://linkedin.com/in/faaizhaikal" target="_blank">
             <i className="fa-brands fa-linkedin"></i>
           </a>
-          <a href="https://instagram.com/faaizhilmi" target="_blank">
-            <i className="fa-brands fa-instagram"></i>
+          <a href="mailto:faaizhaikal@gmail.com" target="_blank">
+            <i className="fa-solid fa-envelope"></i>
           </a>
         </div>
 
