@@ -103,7 +103,8 @@
     position: absolute;
     bottom: 100%;
     left: 50%;
-    width: 75%;
+    text-align: justify;
+    width: 100%;
     transform: translateX(-50%);
   }
 
