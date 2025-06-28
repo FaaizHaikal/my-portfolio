@@ -1,12 +1,12 @@
 import TypingTexts from '../components/TypingTexts';
-import ImageProfile from '../assets/faaiz.png';
+import ImageProfile from '../assets/faaiz.webp';
 import './AboutPage.css';
 
 function AboutPage() {
   const titles = [
-    'Software Developer',
+    'Software Engineer',
+    'Full-Stack Developer',
     'Backend Developer',
-    'Robotics Programmer',
   ];
 
   return (
@@ -22,10 +22,10 @@ function AboutPage() {
           </span>
         </h3>
         <p>
-          I'm an undergraduate student at the{' '}
-          <span>Institute Technology of Sepuluh Nopember</span>, majoring in{' '}
-          <span>Informatics Engineering</span>. I'm passionate in{' '}
-          <span>software development</span>.
+          I’m a{' '}<span>final-year Computer Science student</span> at{' '}
+          <span>Institut Teknologi Sepuluh Nopember</span>, 
+          passionate about building real-world software, from 
+          AI-powered systems to mobile and web apps.
         </p>
 
         <div className="socials">
@@ -35,8 +35,8 @@ function AboutPage() {
           <a href="https://linkedin.com/in/faaizhaikal" target="_blank">
             <i className="fa-brands fa-linkedin"></i>
           </a>
-          <a href="https://instagram.com/faaizhilmi" target="_blank">
-            <i className="fa-brands fa-instagram"></i>
+          <a href="mailto:faaizhaikal@gmail.com" target="_blank">
+            <i className="fa-solid fa-envelope"></i>
           </a>
         </div>
       </div>
