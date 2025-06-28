@@ -3,20 +3,18 @@ import './ExperiencesPage.css';
 function ExperiencesPage() {
   const experiences = [
     {
-      title: 'AI Developer',
-      company: 'SDPPI Kominfo',
-      date: 'Aug 2024 - Dec 2024',
-      logo: `${import.meta.env.BASE_URL}assets/kominfo.png`,
-      decription:
-        'Developed face recognition and text to speech for RAISA assistant robot.',
+      title: 'Programmer',
+      company: 'ICHIRO ITS Robotics Team',
+      date: 'Dec 2022 - July 2025',
+      logo: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
+      description: `Developed microservice architecture comprising 13 services and web-based robot control interface, contributing to national and international wins.`
     },
     {
-      title: 'Chief of Programming Division',
-      company: 'ICHIRO ITS',
-      date: 'Dec 2022 - Present',
-      logo: `${import.meta.env.BASE_URL}assets/ichiro.jpeg`,
-      decription:
-        'Led the programming division, developed various projects, and participated in national and international competitions.',
+      title: 'AI Software Developer',
+      company: 'SDPPI Kominfo',
+      date: 'Aug 2024 - Jan 2025',
+      logo: `${import.meta.env.BASE_URL}assets/kominfo.webp`,
+      description: `Integrated face recognition and TTS into RAISA robot and built a full-stack registration web application to personalize customer service.`,
     },
   ];
 
@@ -34,7 +32,7 @@ function ExperiencesPage() {
         <div className="btn-group">
           <a
             href={`${import.meta.env.BASE_URL}assets/cv.pdf`}
-            download="Faa'iz Haikal Hilmi_CV.pdf"
+            download="CV_Faa'iz Haikal Hilmi.pdf"
           >
             My CV
           </a>
@@ -46,7 +44,7 @@ function ExperiencesPage() {
         {experiences.map((experiences) => (
           <div className="experience">
             <div className="description">
-              <p>{experiences.decription}</p>
+              <p>{experiences.description}</p>
             </div>
             <div className="date">
               <span>{experiences.date}</span>
