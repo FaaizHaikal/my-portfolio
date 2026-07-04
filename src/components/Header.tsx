@@ -78,25 +78,19 @@ function Navbar() {
 
       <nav>
         <a href="#about" className={activeSection === 'about' ? 'active' : ''}>
-          About
+          ABOUT
         </a>
         <a
           href="#experiences"
           className={activeSection === 'experiences' ? 'active' : ''}
         >
-          Experiences
-        </a>
-        <a
-          href="#projects"
-          className={activeSection === 'projects' ? 'active' : ''}
-        >
-          Projects
+          EXPERIENCES
         </a>
         <a
           href="#contact"
           className={activeSection === 'contact' ? 'active' : ''}
         >
-          Contact
+          CONTACT
         </a>
       </nav>
     </header>

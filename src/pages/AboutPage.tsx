@@ -1,33 +1,35 @@
-import TypingTexts from '../components/TypingTexts';
-import ImageProfile from '../assets/faaiz.webp';
+import { useState, useEffect } from 'react';
+import ImageProfile from '../assets/faaiz.png';
 import './AboutPage.css';
 
 function AboutPage() {
-  const titles = [
-    'Software Engineer',
-    'Full-Stack Developer',
-    'Backend Developer',
-  ];
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 895);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section id="about">
+      {!isMobile && <div className="background-circle desktop-circle"></div>}
       <div className="about-content">
         <h1>
-          Hi, I am <span>Faa'iz</span>
+          <span>Faa'iz</span> Haikal Hilmi
         </h1>
         <h3>
-          I am a{' '}
-          <span className="typed">
-            <TypingTexts texts={titles} speed={30} backSpeed={50} />
-          </span>
+          Backend Engineer <span>&</span> Robotics Engineer
         </h3>
         <p>
-          I’m a <span>final-year Computer Science student</span> at{' '}
-          <span>Institut Teknologi Sepuluh Nopember</span>, passionate about
-          building real-world software, from AI-powered systems to mobile and
-          web apps.
+          A <span>Computer Science graduate</span> from{' '}
+          <span>Institut Teknologi Sepuluh Nopember (ITS)</span> with experience
+          in backend development and robotics software engineering.
         </p>
-
         <div className="socials">
           <a href="https://github.com/FaaizHaikal" target="_blank">
             <i className="fa-brands fa-github"></i>
@@ -42,6 +44,8 @@ function AboutPage() {
       </div>
 
       <div className="about-image">
+        {isMobile && <div className="background-circle mobile-circle"></div>}
+        <div className="background-text">X</div>
         <img src={ImageProfile} alt="Faa'iz" />
       </div>
     </section>
