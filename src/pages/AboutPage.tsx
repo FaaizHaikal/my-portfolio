@@ -19,9 +19,7 @@ function AboutPage() {
     <section id="about">
       {!isMobile && <div className="background-circle desktop-circle"></div>}
       <div className="about-content">
-        <h1>
-          <span>Faa'iz</span> Haikal Hilmi
-        </h1>
+        <h1>Faa'iz Haikal Hilmi</h1>
         <h3>
           Backend Engineer <span>&</span> Robotics Engineer
         </h3>

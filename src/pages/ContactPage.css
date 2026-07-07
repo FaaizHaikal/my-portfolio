@@ -1,226 +1,219 @@
 #contact {
   display: flex;
   flex-direction: column;
-  position: relative; /* Needed for footer positioning */
+  position: relative;
   padding: 0;
+  background-color: var(--accent);
+  min-height: 100vh;
+}
+
+.corner-quarter-circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30vw;
+  height: 30vw;
+  border-top: 2px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: 0 100% 0 0;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .contact-content {
-  padding: 10rem 12% 0;
+  padding: 8rem 12% 5rem;
   display: flex;
-  justify-content: space-between;
-  gap: 30rem;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   flex: 1;
-}
+  width: 100%;
+  gap: 1.5rem;
 
-.left {
-  h2 {
-    font-size: 4rem;
-    font-weight: 900;
+  .headline-row {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2rem;
+    margin-top: auto;
+    width: max-content;
 
-    span {
-      color: var(--accent);
+    h2 {
+      font-size: 8.5rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -2px;
+      color: var(--primary);
+    }
+
+    .circle-stripes {
+      position: absolute;
+      right: -8rem;
+      bottom: -3.5rem;
+      width: 25rem;
+      height: 25rem;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.15;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--primary),
+        var(--primary) 4px,
+        transparent 4px,
+        transparent 12px
+      );
     }
   }
 
-  p {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-top: 1rem;
-    white-space: nowrap;
-  }
+  .email-action-row {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    width: max-content;
+    min-width: 550px;
+    padding: 4rem 0;
+    border-bottom: 2px solid color-mix(in srgb, var(--primary) 15%, transparent);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-bottom: auto;
 
-  .primary-contact {
-    display: flex;
-    gap: 5rem;
-    border: var(--text-color) 2px solid;
-    border-radius: 1.25rem;
-    margin-top: 2rem;
-    padding: 2rem 3rem;
-
-    .item {
+    .email-text-group {
+      position: relative;
       display: flex;
       align-items: center;
-      cursor: pointer;
-      transition: 0.3s ease-in-out;
+      padding-left: 1.5rem;
+    }
 
-      &:hover {
-        i {
-          background: var(--accent);
-          color: var(--secondary);
-          box-shadow: 0 0 20px var(--accent);
-        }
+    .email-address {
+      font-size: 4.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
 
-        .description {
-          p {
-            color: var(--accent);
-          }
-        }
+    .email-decorator-circle {
+      position: absolute;
+      left: -1.5rem;
+      top: 50%;
+      transform: translateY(-50%) scale(1);
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      background-color: var(--tertiary);
+      z-index: 1;
+      opacity: 0.4;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .email-arrow {
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.5;
+      margin-left: 3rem;
+      transform: translate(0, 0);
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    &:hover {
+      padding-left: 1rem;
+      border-bottom-color: var(--primary);
+
+      .email-address {
+        color: var(--secondary);
       }
-
-      i {
-        font-size: 2rem;
-        color: var(--text-color);
-        margin-right: 1.25rem;
-        background: var(--secondary);
-        padding: 1.25rem;
-        border-radius: 50%;
-        border: 2px solid var(--accent);
-        transition: 0.3s ease-in-out;
+      .email-decorator-circle {
+        background-color: var(--primary);
+        opacity: 0.15;
+        transform: translateY(-50%) scale(1.25) translateX(-5px);
       }
-
-      .description {
-        h6 {
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: var(--text-color);
-          letter-spacing: 0.2rem;
-        }
-
-        p {
-          font-size: 1.25rem;
-          font-weight: 400;
-          transition: 0.3s ease-in-out;
-          margin-top: 0.5rem;
-          white-space: nowrap;
-        }
+      .email-arrow {
+        opacity: 1;
+        color: var(--primary);
+        transform: translate(6px, 0px);
       }
     }
   }
 }
 
-.right {
-  padding-top: 10rem;
+.contact-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  z-index: 5;
 
-  form {
-    input,
-    textarea {
-      width: 100%;
-      padding: 1rem;
-      font-size: 1.5rem;
-      font-weight: 400;
-      background: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-      color: var(--text-color);
-
-      &:not(:last-child) {
-        margin-bottom: 3rem;
-      }
-
-      &::placeholder {
-        color: var(--text-color);
-        filter: brightness(0.5);
-      }
-
-      &:focus {
-        outline: none;
-        border-bottom: 2px solid var(--text-color);
-
-        &::placeholder {
-          filter: brightness(1);
-        }
-      }
-    }
-
-    textarea {
-      /* disable resize */
-      resize: none;
-      height: 20rem;
-    }
-
-    button {
-      padding: 1rem 2rem;
-      background: var(--secondary);
-      color: var(--text-color);
-      cursor: pointer;
-      border-radius: 5px;
-      transition: 0.3s ease;
-
-      &:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 10px var(--text-color);
-      }
-
-      i {
-        margin-left: 5px;
-      }
-    }
+  .copyright {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    font-weight: 400;
+    margin: 0;
   }
-}
 
-footer {
-  position: relative;
-  padding: 3rem 12%;
-  background-color: var(--secondary);
-  text-align: center;
+  .footer-separator {
+    font-size: 1.4rem;
+    color: color-mix(in srgb, var(--primary) 40%, transparent);
+    user-select: none;
+    pointer-events: none;
+  }
 
   .socials {
-    text-align: center;
-    padding-bottom: 3rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 
     a {
-      font-size: 1.75rem;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-      width: 3.15rem;
-      height: 3.15rem;
-      line-height: 3rem;
-      display: inline-block;
-      text-align: center;
-      border-radius: 50%;
-      transition: 0.3s ease-in-out;
-      margin: 0 2rem;
+      font-size: 2.2rem;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+      display: inline-flex;
 
       &:hover {
-        transform: scale(1.2) translateY(-5px);
-        background-color: var(--accent);
-        color: black;
-        box-shadow: 0 0 25px var(--accent);
+        color: var(--primary);
+        transform: translateY(-3px);
       }
     }
   }
 }
 
-@media (max-width: 1200px) {
-  .contact-content {
-    justify-content: center;
-    gap: 10rem;
+@media (max-width: 1024px) {
+  .headline-row h2 {
+    font-size: 6.5rem;
   }
-}
-
-@media (max-width: 976px) {
-  .contact-content {
-    gap: 3rem;
-    flex-direction: column;
-  }
-
-  .right {
-    padding-top: 2rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .left {
-    p {
-      white-space: normal;
-    }
-
-    .primary-contact {
-      flex-direction: column;
-      gap: 2rem;
+  .email-action-row {
+    min-width: 450px;
+    .email-address {
+      font-size: 3.2rem;
     }
   }
 }
 
-@media (max-height: 756px) {
-  .contact-content {
-    padding-top: 20rem;
-    padding-bottom: 10rem;
+@media (max-width: 600px) {
+  .headline-row h2 {
+    font-size: 4.5rem;
+  }
+  .email-action-row {
+    padding: 3rem 0;
+    min-width: 100%;
+    .email-address {
+      font-size: 2rem;
+    }
+    .email-decorator-circle {
+      width: 4rem;
+      height: 4rem;
+    }
+    .email-arrow {
+      font-size: 2.2rem;
+    }
+  }
+
+  .contact-footer {
     gap: 1.5rem;
-  }
-
-  .primary-contact {
-    padding: 1rem 2rem;
   }
 }
