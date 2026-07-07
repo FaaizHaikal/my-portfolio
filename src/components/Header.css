@@ -8,25 +8,12 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  padding: 2rem 12% 2rem;
-}
-
-#menu-icon,
-#close-icon {
-  font-size: 3rem;
-  color: var(--text-color);
-  cursor: pointer;
-  transition: 0.3s ease;
-  display: none;
-
-  &:hover {
-    color: var(--accent);
-  }
+  padding: 2rem 12%;
 }
 
 .logo {
   font-size: 4rem;
-  font-weight: 900;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
   color: var(--text-color);
@@ -34,22 +21,17 @@ header {
   span {
     color: var(--accent);
   }
-
-  &:hover {
-    text-shadow: 0 0 25px var(--accent);
-    transform: scale(1.1);
-  }
 }
 
 nav a {
   font-size: 2rem;
-  font-weight: 500;
-  color: var(--accent);
+  font-weight: 400;
+  color: var(--text-color);
   margin-left: 4rem;
   cursor: pointer;
   position: relative;
   transition:
-    0.3s ease,
+    all 0.3s ease,
     font-weight 0.15s ease;
 
   &::after {
@@ -67,7 +49,8 @@ nav a {
 
   &:hover,
   &.active {
-    font-weight: 900;
+    font-weight: 700;
+    color: var(--accent);
   }
 }
 
@@ -76,8 +59,80 @@ nav a.active::after {
   transform: translateX(-50%) scale(1);
 }
 
-/* If the nav container is being hovered,
-    turn off the active link's dot so the hovered link takes over */
+header.theme-dark-bg {
+  .logo {
+    color: var(--primary);
+    span {
+      color: var(--tertiary);
+    }
+  }
+
+  nav a {
+    color: color-mix(in srgb, var(--primary) 40%, transparent);
+
+    &::after {
+      background-color: var(--primary);
+    }
+
+    &:hover,
+    &.active {
+      color: var(--primary);
+      opacity: 1;
+    }
+  }
+
+  .burger-bar {
+    background-color: var(--primary);
+  }
+}
+
+.menu-trigger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 3.5rem;
+  height: 2.2rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1010;
+
+  .burger-bar {
+    display: block;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: right center;
+  }
+
+  .bar-top {
+    width: 55%;
+    align-self: flex-end;
+  }
+  .bar-middle {
+    width: 100%;
+  }
+  .bar-bottom {
+    width: 55%;
+    align-self: flex-end;
+  }
+
+  &.is-open {
+    .bar-top {
+      transform: rotate(-45deg) translate(-2px, -3px);
+      width: 100%;
+    }
+    .bar-middle {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .bar-bottom {
+      transform: rotate(45deg) translate(-2px, 3px);
+      width: 100%;
+    }
+  }
+}
+
 nav:hover a.active:not(:hover)::after {
   transform: translateX(-50%) scale(0);
 }
@@ -87,32 +142,56 @@ nav:hover a.active:not(:hover) {
 
 @media (max-width: 895px) {
   header {
-    /*background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);*/
-    padding: 1rem 3%;
+    padding: 2rem 5%;
+  }
+
+  .menu-trigger {
+    display: flex;
   }
 
   nav {
-    display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     right: 0;
-    width: 20rem;
-    padding: 1rem 3%;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--accent);
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 
     &.active {
-      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     a {
-      display: block;
-      color: var(--accent);
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-left: 0;
       text-align: center;
-      margin: 3rem 0;
+      color: color-mix(in srgb, var(--primary) 35%, transparent);
+      transition: all 0.3s ease;
+
+      &::after {
+        display: none;
+      }
 
       &:hover,
       &.active {
         font-weight: 900;
+        color: var(--primary);
+        transform: scale(1.1);
       }
     }
   }

@@ -3,92 +3,86 @@ import './Header.css';
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState<string>('about');
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isOverDarkSection, setIsOverDarkSection] = useState<boolean>(false);
 
   useEffect(() => {
-    const menuIcon = document.querySelector('#menu-icon') as HTMLElement | null;
-    const closeIcon = document.querySelector(
-      '#close-icon'
-    ) as HTMLElement | null;
-    const nav = document.querySelector('nav') as HTMLElement | null;
     const sections = document.querySelectorAll(
       'section'
     ) as NodeListOf<HTMLElement>;
-
-    if (!menuIcon || !closeIcon || !nav) return;
-
-    menuIcon.onclick = () => {
-      nav.classList.add('active');
-      menuIcon.style.display = 'none';
-      closeIcon.style.display = 'block';
-    };
-
-    closeIcon.onclick = () => {
-      nav.classList.remove('active');
-      menuIcon.style.display = 'block';
-      closeIcon.style.display = 'none';
-    };
-
-    const handleResize = () => {
-      if (window.innerWidth > 895) {
-        nav.classList.remove('active');
-        menuIcon.style.display = 'none';
-        closeIcon.style.display = 'none';
-      } else {
-        if (nav.classList.contains('active')) {
-          menuIcon.style.display = 'none';
-          closeIcon.style.display = 'block';
-        } else {
-          menuIcon.style.display = 'block';
-          closeIcon.style.display = 'none';
-        }
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
+    const contactSection = document.querySelector(
+      '#contact'
+    ) as HTMLElement | null;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.id;
-            setActiveSection(id);
+            setActiveSection(entry.target.id);
           }
         });
       },
-      { threshold: 0.5 } // 50%
+      { threshold: 0.4 }
     );
 
     sections.forEach((section) => observer.observe(section));
 
+    const handleScroll = () => {
+      if (!contactSection) return;
+      const contactTop = contactSection.getBoundingClientRect().top;
+      const headerHeightOffset = 60; // 60px
+      if (contactTop <= headerHeightOffset) {
+        setIsOverDarkSection(true);
+      } else {
+        setIsOverDarkSection(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => {
       sections.forEach((section) => observer.unobserve(section));
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  const handleNavLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header>
-      <a href="#about" className="logo">
+    <header
+      className={`${isOverDarkSection || isMenuOpen ? 'theme-dark-bg' : ''}`}
+    >
+      <a href="#about" className="logo" onClick={handleNavLinkClick}>
         Faa'iz<span>.</span>
       </a>
+      <div
+        className={`menu-trigger ${isMenuOpen ? 'is-open' : ''}`}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <span className="burger-bar bar-top"></span>
+        <span className="burger-bar bar-middle"></span>
+        <span className="burger-bar bar-bottom"></span>
+      </div>
 
-      <i className="fa-solid fa-xmark hide" id="close-icon"></i>
-      <i className="fa-solid fa-bars hide" id="menu-icon"></i>
-
-      <nav>
-        <a href="#about" className={activeSection === 'about' ? 'active' : ''}>
+      <nav className={isMenuOpen ? 'active' : ''}>
+        <a
+          href="#about"
+          className={activeSection === 'about' ? 'active' : ''}
+          onClick={handleNavLinkClick}
+        >
           ABOUT
         </a>
         <a
           href="#experiences"
           className={activeSection === 'experiences' ? 'active' : ''}
+          onClick={handleNavLinkClick}
         >
           EXPERIENCES
         </a>
         <a
           href="#contact"
           className={activeSection === 'contact' ? 'active' : ''}
+          onClick={handleNavLinkClick}
         >
           CONTACT
         </a>
