@@ -58,33 +58,6 @@
         ]
       },
       {
-        "name": "Telkomsel Makan Apa",
-        "image": "assets/makan-apa.webp",
-        "techStack": [
-          "Go",
-          "Go-Chi",
-          "Python",
-          "BeautifulSoup",
-          "Google Maps API",
-          "PostgreSQL",
-          "Redis",
-          "JWT",
-          "Docker"
-        ],
-        "roles": ["Backend Engineer", "Data Engineer"],
-        "deliverables": [
-          "Core Platform Architecture",
-          "Authentication Service",
-          "Data Scraping Pipeline",
-          "CMS APIs"
-        ],
-        "date": "Nov 2025 - Jan 2026",
-        "description": [
-          "Helped develop the backend foundation for an LLM-powered food recommendation platform, including authentication services and CMS APIs configured with granular privileges (data scraping schedules, user activity checks, role management, etc.).",
-          "Wrote supporting Python data scraping scripts using BeautifulSoup to extract merchant data from GoFood and Google Maps."
-        ]
-      },
-      {
         "name": "Pegadaian G24",
         "image": "assets/g24.jpg",
         "techStack": [
