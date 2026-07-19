@@ -1,38 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ExperiencesPage.css';
+import experiencesJson from '../data/experiences.json';
+import { ExperiencesDataMap } from '../types/experience';
 
 function ExperiencesPage() {
-  const [hoveredIndex, setHoveredIndex] = useState(-1);
-
-  const experiences = [
-    {
-      id: 'nbs',
-      title: 'Backend Engineer',
-      company: 'Nusantara Beta Studio',
-      date: 'Sep 2025 - Mar 2026',
-      logo: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
-      previewWork: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
-      description: `Developed microservice architecture comprising 13 services and web-based robot control interface, contributing to national and international wins.`,
-    },
-    {
-      id: 'ichiro-robotics',
-      title: 'Programmer',
-      company: 'ICHIRO ITS Robotics Team',
-      date: 'Dec 2022 - July 2025',
-      logo: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
-      previewWork: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
-      description: `Developed microservice architecture comprising 13 services and web-based robot control interface, contributing to national and international wins.`,
-    },
-    {
-      id: 'sdppi-kominfo',
-      title: 'AI Software Developer',
-      company: 'SDPPI Kominfo',
-      date: 'Aug 2024 - Jan 2025',
-      logo: `${import.meta.env.BASE_URL}assets/kominfo.webp`,
-      previewWork: `${import.meta.env.BASE_URL}assets/ichiro.webp`,
-      description: `Integrated face recognition and TTS into RAISA robot and built a full-stack registration web application to personalize customer service.`,
-    },
-  ];
+  const experiences = experiencesJson as ExperiencesDataMap;
+  const navigate = useNavigate();
+  const [hoveredIndex, setHoveredIndex] = useState<number>(-1);
 
   return (
     <section id="experiences">
@@ -45,18 +20,16 @@ function ExperiencesPage() {
       </div>
 
       <div className="experiences-content">
-        {experiences.map((exp, index) => (
+        {Object.entries(experiences).map(([expId, exp], index) => (
           <div
-            key={exp.id}
+            key={expId}
             className={`experience ${hoveredIndex === index ? 'is-hovered' : ''}`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(-1)}
-            onClick={() =>
-              (window.location.href = `/my-portfolio/experiences/${exp.id}`)
-            }
+            onClick={() => navigate(`/experiences/${expId}`)}
           >
             <div className="watermark-logo">
-              <img src={exp.logo} alt="" />
+              <img src={`${import.meta.env.BASE_URL}/${exp.logo}`} alt="" />
             </div>
 
             <div className="date">
@@ -66,10 +39,11 @@ function ExperiencesPage() {
             <div className="title-company">
               <h3>{exp.title}</h3>
               <h5>{exp.company}</h5>
+              <p className="exp-summary">{exp.summary}</p>
             </div>
 
             <div className="view-project-cta">
-              {hoveredIndex != index && (
+              {hoveredIndex !== index && (
                 <div className="cta-decorator-circle"></div>
               )}
               <span className="cta-text">
@@ -79,7 +53,10 @@ function ExperiencesPage() {
 
             <div className="preview-work">
               <div className="preview-accent"></div>
-              <img src={exp.previewWork} alt="Work preview" />
+              <img
+                src={`${import.meta.env.BASE_URL}/${exp.previewWork}`}
+                alt="Work preview"
+              />
             </div>
           </div>
         ))}

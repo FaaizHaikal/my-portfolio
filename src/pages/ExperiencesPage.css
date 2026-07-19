@@ -118,9 +118,19 @@
     }
 
     h5 {
-      font-size: 1.75rem;
+      font-size: 1.9rem;
       font-weight: 400;
       color: var(--accent);
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin-top: 1.5rem;
+      max-width: 35vw;
+
+      transition: color 0.3s ease-in-out;
     }
   }
 
@@ -189,7 +199,7 @@
     left: -70px;
     width: 80%;
     height: 80%;
-    background-color: var(--tertiary);
+    background-color: #d2e7fc;
     z-index: -1;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     transform: scale(1);

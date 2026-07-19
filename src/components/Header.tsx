@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import './Header.css';
 
 function Navbar() {
@@ -6,13 +7,21 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isOverDarkSection, setIsOverDarkSection] = useState<boolean>(false);
 
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   useEffect(() => {
+    if (!isHomePage) {
+      setIsOverDarkSection(false);
+      return;
+    }
+
     const sections = document.querySelectorAll(
       'section'
     ) as NodeListOf<HTMLElement>;
     const contactSection = document.querySelector(
       '#contact'
     ) as HTMLElement | null;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -36,13 +45,15 @@ function Navbar() {
         setIsOverDarkSection(false);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isHomePage, location.pathname]);
 
   const handleNavLinkClick = () => {
     setIsMenuOpen(false);
@@ -52,9 +63,10 @@ function Navbar() {
     <header
       className={`${isOverDarkSection || isMenuOpen ? 'theme-dark-bg' : ''}`}
     >
-      <a href="#about" className="logo" onClick={handleNavLinkClick}>
+      <Link to="/" className="logo" onClick={handleNavLinkClick}>
         Faa'iz<span>.</span>
-      </a>
+      </Link>
+
       <div
         className={`menu-trigger ${isMenuOpen ? 'is-open' : ''}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -65,27 +77,29 @@ function Navbar() {
       </div>
 
       <nav className={isMenuOpen ? 'active' : ''}>
-        <a
-          href="#about"
-          className={activeSection === 'about' ? 'active' : ''}
+        <Link
+          to="/#about"
+          className={isHomePage && activeSection === 'about' ? 'active' : ''}
           onClick={handleNavLinkClick}
         >
           ABOUT
-        </a>
-        <a
-          href="#experiences"
-          className={activeSection === 'experiences' ? 'active' : ''}
+        </Link>
+        <Link
+          to="/#experiences"
+          className={
+            isHomePage && activeSection === 'experiences' ? 'active' : ''
+          }
           onClick={handleNavLinkClick}
         >
           EXPERIENCES
-        </a>
-        <a
-          href="#contact"
-          className={activeSection === 'contact' ? 'active' : ''}
+        </Link>
+        <Link
+          to="/#contact"
+          className={isHomePage && activeSection === 'contact' ? 'active' : ''}
           onClick={handleNavLinkClick}
         >
           CONTACT
-        </a>
+        </Link>
       </nav>
     </header>
   );

@@ -1,0 +1,177 @@
+{
+  "nbs": {
+    "title": "Backend Engineer",
+    "company": "Nusantara Beta Studio",
+    "date": "Sep 2025 - Mar 2026",
+    "logo": "assets/nbs.png",
+    "previewWork": "assets/nbs_preview.jpg",
+    "summary": "Architected high-throughput backend services and data pipelines for enterprise clients including Telkomsel and Pegadaian",
+    "projects": [
+      {
+        "name": "MyTelkomsel Localization",
+        "image": "assets/localization.jpg",
+        "techStack": [
+          "Go",
+          "Go-Chi",
+          "Goroutines",
+          "PostgreSQL",
+          "Redis",
+          "JWT",
+          "SonarQube",
+          "Docker"
+        ],
+        "roles": ["Backend Engineer"],
+        "deliverables": [
+          "Asset Localization Service",
+          "Unit Test (80% Coverage)"
+        ],
+        "date": "Dec 2025 - Mar 2026",
+        "description": [
+          "Developed core backend services enabling mobile clients to fetch incremental asset updates instead of downloading full application assets, reducing average network usage from 5 MB to <= 100 KB. Implemented JWT authentication, asset versioning, and CMS APIs for inspecting asset changes and scheduling synchronization across 4 asset types (Video, Image, Indonesian and English Text)."
+        ]
+      },
+      {
+        "name": "Pegadaian Agen 2.0",
+        "image": "assets/agent_2.0.jpg",
+        "techStack": [
+          "Go",
+          "Go-Chi",
+          "PostgreSQL",
+          "Firebase FCM",
+          "Redis",
+          "JWT",
+          "Apache Kafka",
+          "SonarQube",
+          "Docker",
+          "RedHat OpenShift"
+        ],
+        "roles": ["Backend Engineer", "DevOps Engineer"],
+        "deliverables": [
+          "Authentication Service",
+          "Account Registration",
+          "Event-Driven Push Notification",
+          "Unit Test (80% Coverage)"
+        ],
+        "date": "Oct 2025 - Mar 2026",
+        "description": [
+          "Developed backend onboarding, registration, and authentication flows integrated with Pegadaian core systems, including saved draft states. Engineered an OTP service with custom failure/resend penalty thresholds, and built an event-driven push notification engine integrated with Kafka events and Firebase Cloud Messaging (FCM) for all transaction events."
+        ]
+      },
+      {
+        "name": "Telkomsel Makan Apa",
+        "image": "assets/makan-apa.webp",
+        "techStack": [
+          "Go",
+          "Go-Chi",
+          "Python",
+          "BeautifulSoup",
+          "Google Maps API",
+          "PostgreSQL",
+          "Redis",
+          "JWT",
+          "Docker"
+        ],
+        "roles": ["Backend Engineer", "Data Engineer"],
+        "deliverables": [
+          "Core Platform Architecture",
+          "Authentication Service",
+          "Data Scraping Pipeline",
+          "CMS APIs"
+        ],
+        "date": "Nov 2025 - Jan 2026",
+        "description": [
+          "Helped develop the backend foundation for an LLM-powered food recommendation platform, including authentication services and CMS APIs configured with granular privileges (data scraping schedules, user activity checks, role management, etc.).",
+          "Wrote supporting Python data scraping scripts using BeautifulSoup to extract merchant data from GoFood and Google Maps."
+        ]
+      },
+      {
+        "name": "Pegadaian G24",
+        "image": "assets/g24.jpg",
+        "techStack": [
+          "Go",
+          "Go-Chi",
+          "gRPC",
+          "PostgreSQL",
+          "Redis",
+          "JWT",
+          "Python",
+          "ETL Pipelines",
+          "SonarQube",
+          "Docker"
+        ],
+        "roles": ["Backend Engineer", "Data Migration Engineer"],
+        "deliverables": [
+          "Outlet Management CMS APIs",
+          "Automated ETL Pipeline",
+          "Unit Test (80% Coverage)"
+        ],
+        "date": "Oct 2025 - Feb 2026",
+        "description": [
+          "Developed CMS APIs for outlet management and built automated data migration tools to migrate legacy outlet data.",
+          "Wrote custom Python ETL scripts to extract, transform, and safely load high-volume legacy user profiles and financial transactions into a newly structured PostgreSQL schema."
+        ]
+      }
+    ]
+  },
+  "ichiro-robotics": {
+    "title": "Robotics Software R&D",
+    "company": "ICHIRO ITS Robotics Team",
+    "date": "Dec 2022 - July 2025",
+    "logo": "assets/ichiro.webp",
+    "previewWork": "assets/ichiro_preview.jpg",
+    "summary": "Research and development of ROS 2-based backend and web control interface for an autonomous humanoid robot",
+    "projects": [
+      {
+        "name": "Autonomous Humanoid Soccer Robot System",
+        "image": "assets/ichiro2.jpg",
+        "techStack": [
+          "C++",
+          "Python",
+          "ROS 2",
+          "OpenCV",
+          "Reinforcement Learning",
+          "React"
+        ],
+        "roles": ["Robotics Software R&D", "Programming Division Manager"],
+        "deliverables": ["Robot Core Process", "Robot Control Interface"],
+        "date": "Dec 2022 - July 2025",
+        "description": [
+          "Developed the core robot processes with ROS 2 for a kid-size humanoid soccer robot, managing 13 concurrent processes including IMU handling, computer vision tracking, Dynamixel servo communication, and deep learning modules. Contributed to elite competitive placements, winning national titles (Kontes Robot Indonesia / KRI) and international championships (FIRA and RoboCup).",
+          "Implemented Inverse Perspective Mapping (IPM) for object relative position estimation integrated with real-time kinematics data, achieving a robust median position estimation error of just 8–15 cm during high-velocity walking states for objects up to 4 meters away.",
+          "Built a dedicated web application robot control interface using React to manage fine-tuning routines for robot configurations, camera parameters, etc."
+        ]
+      }
+    ]
+  },
+  "sdppi-kominfo": {
+    "title": "Robotics Software R&D",
+    "company": "SDPPI Kominfo",
+    "date": "Aug 2024 - Jan 2025",
+    "logo": "assets/kominfo.png",
+    "previewWork": "assets/raisa_preview.jpg",
+    "summary": "Integrated face recognition and Text-to-Speech into R2S2 service robot via ROS 1, alongside a full-stack face registration web app",
+    "projects": [
+      {
+        "name": "R2S2 Service Robot AI Integration",
+        "image": "assets/raisa.jpg",
+        "techStack": [
+          "Python",
+          "React",
+          "Vite",
+          "Node.js",
+          "ROS 1",
+          "Deep Face Recognition",
+          "Text-To-Speech (TTS) Pipeline",
+          "MongoDB"
+        ],
+        "roles": ["Robotics Software R&D", "AI Software Developer"],
+        "deliverables": ["AI Pipeline", "Face Registration Web App"],
+        "date": "Aug 2024 - Jan 2025",
+        "description": [
+          "Integrated deep-learning facial recognition models and automated Text-to-Speech (TTS) pipelines directly into the active RAISA service robot framework using ROS 1.",
+          "Built a custom full-stack registration application to securely capture camera snapshots and customer data, simplifying returning visits down to automated facial scans. Persisted data using MongoDB to support flexible, evolving user schemas over time."
+        ]
+      }
+    ]
+  }
+}
